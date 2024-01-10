@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./Layout";
+import { Layout } from "./Layout/Layout";
 
-import { HomePage } from "pages/HomePage";
+import { HomePage } from "pages/HomePage/HomePage";
 import { MoviesPage } from "pages/MoviesPage";
 import { MovieDetailsPage } from "pages/MovieDetailsPage"
 import { CastPage } from "pages/CastPage";
