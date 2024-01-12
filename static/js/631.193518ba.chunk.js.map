@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/631.193518ba.chunk.js","mappings":"iKAOA,UALiB,WACf,OACEA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,YAET,C","sources":["pages/CastPage.jsx"],"sourcesContent":["import React from 'react'\n\nconst CastPage = () => {\n  return (\n    <div>CastPage</div>\n  )\n}\nexport default CastPage ;"],"names":["_jsx","children"],"sourceRoot":""}
