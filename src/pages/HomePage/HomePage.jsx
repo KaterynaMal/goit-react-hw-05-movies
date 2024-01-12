@@ -16,35 +16,61 @@ const HomePage = () => {
   useEffect(() => {
     if (trending === null) return;
 
+    const fetchTrendingMovies = async () => {
+      try {
+        const endpoint = '/trending/movie/day';
+        const trendingMoviesData = await requestMovies(endpoint);
+
+        if (trendingMoviesData.results) {
+          setTrendingMovies(trendingMoviesData.results);
+        }
+      } catch (error) {
+        console.error('Error fetching trending movies:', error.message);
+      }
+    };
+
     setSearchParams({
       trending,
     });
-  }, [trending, setSearchParams]);
 
-  useEffect(() => {
-    if (trending === null) return;
-
-    const fetchTrendingMovies = async () => {
-      const endpoint = '/trending/movie/day';
-
-      const trendingMovies = await requestMovies(endpoint);
-      setTrendingMovies(trendingMovies.results);
-    };
     fetchTrendingMovies();
-  }, [trending]);
+  }, [trending, setSearchParams]);
 
   return (
     <div className={css.homePage}>
       <h2 className={css.title}>Trending movies</h2>
-      {trendingMovies.map(movie => (
-        <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }} >
-                  {movie.title}
-                  </Link>
-        </li>
-      ))}
+      <ul>
+        {trendingMovies.map(movie => (
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              {movie.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
 export default HomePage;
+
+
+  //   useEffect(() => {
+  //     if (trending === null) return;
+
+  //     setSearchParams({
+  //       trending,
+  //     });
+  //   }, [trending, setSearchParams]);
+
+  //   useEffect(() => {
+  //     if (trending === null) return;
+
+  //     const fetchTrendingMovies = async () => {
+  //       const endpoint = '/trending/movie/day';
+
+  //       const trendingMovies = await requestMovies(endpoint);
+  //       setTrendingMovies(trendingMovies.results);
+  //     };
+  //     fetchTrendingMovies();
+  //   }, [trending]);
