@@ -5,4 +5,4 @@ const CastPage = () => {
     <div>CastPage</div>
   )
 }
-export { CastPage };
+export default CastPage ;

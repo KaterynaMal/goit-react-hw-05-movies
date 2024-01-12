@@ -5,4 +5,4 @@ const ReviewsPage = () => {
     <div>ReviewsPage</div>
   )
 }
-export { ReviewsPage };
+export default ReviewsPage ;

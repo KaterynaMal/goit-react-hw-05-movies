@@ -6,4 +6,4 @@ const MovieDetailsPage = () => {
   )
 }
 
-export { MovieDetailsPage };
+export default MovieDetailsPage ;
