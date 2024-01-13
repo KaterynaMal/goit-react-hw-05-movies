@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-
+// , Link, useLocation 
 import { requestMovies } from 'services/api';
 
 const ReviewsPage = () => {

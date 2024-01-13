@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
-
+import { useParams, Link, useLocation} from 'react-router-dom';
+// , Link, useLocation 
 import { requestMovies } from 'services/api';
 
 const CastPage = () => {
@@ -26,6 +26,8 @@ const CastPage = () => {
     fetchCast();
   }, [movieId]);
 
+const defaultImg = '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image>'
+
   return (
     <div>
       <Link to={backLink}>
@@ -45,10 +47,13 @@ const CastPage = () => {
                 src={
                   actor.profile_path
                     ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
-                    : 'https://lh3.googleusercontent.com/pw/ABLVV84zci9C9zWeXHgV9_NUIfxRzW_2SyA3whYBaXKw-mF-AB8bYqM2abi0T5518xnJmjAH0f2AkDYz8PGjJHkORp7Czcuw7_oK_ZRVlep-TCCFXh98G7GA7i5EeVXXnr2PrwMOwAHPqxnlDQ5_lKz0__rZQw=w600-h600-s-no-gm?authuser=0'
+                    // : 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image>'
+                   : {defaultImg}
                 }
                 alt={actor.name}
+                width={250}
               />
+
               <p>{actor.name}</p>
               <p>Character: {actor.character}</p>
             </li>

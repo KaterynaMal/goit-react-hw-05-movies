@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { requestMovies } from 'services/api';
 
-import css from './HomePage.module.css';
+import css from '../HomePage/HomePage.module.css';
 
 const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);

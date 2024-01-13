@@ -1,11 +1,11 @@
-// import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import css from './SearchMowies.module.css';
-import { useSearchParams } from 'react-router-dom';
+// import React from 'react';
+// import { useNavigate, useSearchParams  } from 'react-router-dom';
+// import css from './SearchMowies.module.css';
 
-const SearchMowies = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
+
+// const SearchMowies = () => {
+//   const [searchParams, setSearchParams] = useSearchParams();
+  // const navigate = useNavigate();
 
   // const query = searchParams.get('query');
   //  setSearchParams({
@@ -13,24 +13,31 @@ const SearchMowies = () => {
   //   });
   
 
-  const handleSearch = () => {
-    navigate(`/movies?query=${searchParams}`);
-  };
+  // const handleSearch = () => {
+  //   navigate(`/movies?query=${searchParams.get('query')}`);
+  // };
 
-  return (
-    <div>
-      <form action="" className={css.form}>
-        <input
-          type="text"
-          value={searchParams}
-          onChange={e => setSearchParams(e.target.value)}
-          className={css.input}
-        />
-        <button onClick={handleSearch} type="submit" className={css.button}>
-          Search
-        </button>
-      </form>
-    </div>
-  );
-};
-export { SearchMowies };
+  // const handleSubmit = (value) => {
+  //   setSearchParams({query: value})
+  // }
+
+//   return (
+//     <div>
+//       <form action="" className={css.form} onSubmit={(e) => {
+//           e.preventDefault();
+//           handleSearch();
+//         }}>
+//         <input
+//           type="text"
+//           value={searchParams.get('query') || ''}
+//           onChange={e => setSearchParams({query: e.target.value})}
+//           className={css.input}
+//         />
+//         <button type="submit" className={css.button}>
+//           Search
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+// export { SearchMowies };
