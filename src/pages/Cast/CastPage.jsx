@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { requestMovies } from 'services/api';
+import css from './CastPage.module.css';
 
 const CastPage = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
-  const location = useLocation();
-  const [backLink] = useState(location.state?.from ?? '/');
 
   useEffect(() => {
     if (!movieId) return;
@@ -26,15 +25,12 @@ const CastPage = () => {
   }, [movieId]);
 
   const defaultImg =
-    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   return (
-    <div>
-      <Link to={backLink}>
-        <button type="button">Go back</button>
-      </Link>
+    <div className={css.castContainer}>
       {cast && (
-        <ul>
+        <ul className={css.castList}>
           {cast.map(actor => (
             <li
               key={
@@ -51,6 +47,7 @@ const CastPage = () => {
                 }
                 alt="poster"
                 width={250}
+                height={375}
               />
 
               <p>{actor.name}</p>

@@ -1,0 +1,14 @@
+.reviewsContainer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.reviewsList {
+  list-style: none;
+}
+
+.reviewsItem {
+  border-bottom: 1px solid gray;
+}

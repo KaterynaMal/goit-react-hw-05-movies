@@ -13,4 +13,16 @@ const requestMovies = async endpoint => {
   }
 };
 
+const findMovies = async endpoint => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3${endpoint}&api_key=${API_KEY}`
+    );
+    return data;
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+};
+
 export { requestMovies };
+export { findMovies };

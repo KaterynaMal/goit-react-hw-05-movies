@@ -1,0 +1,19 @@
+.discription {
+  display: block;
+}
+img {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.additional {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.details_container {
+  display: flex;
+  gap: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 import { requestMovies } from 'services/api';
+
+import css from './ReviewsPage.module.css';
 
 const ReviewsPage = () => {
   const { movieId } = useParams();
   const [review, setReview] = useState(null);
-
-  const location = useLocation();
-  const [backLink] = useState(location.state?.from ?? '/');
 
   useEffect(() => {
     if (!movieId) return;
@@ -26,15 +24,11 @@ const ReviewsPage = () => {
   }, [movieId]);
 
   return (
-    <div>
-      <Link to={backLink}>
-        <button type="button">Go back</button>
-      </Link>
-
+    <div className={css.reviewsContainer}>
       {review && review.length > 0 ? (
-        <ul>
+        <ul className={css.reviewsList}>
           {review.map(post => (
-            <li key={post.id}>
+            <li className={css.reviewsItem} key={post.id}>
               <h3>{post.author}</h3>
               <p>{post.content}</p>
             </li>

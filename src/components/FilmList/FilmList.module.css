@@ -1,0 +1,16 @@
+.list {
+  padding-left: 80px;
+}
+
+.movie_link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+.movie_link:hover,
+.movie_link:focus {
+  text-decoration: underline;
+  color: rgb(131, 159, 181);
+}

@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import css from './MoviesPage.module.css';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
-import { requestMovies } from 'services/api';
-import { Circles } from 'react-loader-spinner';
+import { findMovies } from 'services/api';
+import { Loader } from 'components/Loader';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const paramsFofSearch =
     searchParams.size !== 0 ? searchParams.get('searchValue') : '';
-
   const [inputValue, setInputValue] = useState(paramsFofSearch || '');
   const [indicatorLoader, setIndicatorLoader] = useState(true);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -26,11 +23,11 @@ const MoviesPage = () => {
         }
 
         const endpoint = `/search/movie?query=${paramsFofSearch}&include_adult=false`;
-        const result = await requestMovies(endpoint);
+        const result = await findMovies(endpoint);
         setMovies(result);
-        //  .results
       } catch (error) {
         console.error('Error:', error.message);
+        setMovies([]);
       }
       setIndicatorLoader(false);
     };
@@ -68,27 +65,23 @@ const MoviesPage = () => {
       </div>
 
       {indicatorLoader && (
-        <Circles
-          height="80"
-          width="80"
-          color="#4fa94d"
-          ariaLabel="circles-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
+        <Loader /> 
       )}
-      {movies && (
-        <ul>
-          {movies.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-                {movie.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      
+        
+        {movies !== null && movies.length > 0 && (
+          <ul>
+            {Array.isArray(movies) &&
+              movies.map(movie => (
+                <li key={movie.id}>
+                  <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                    {movie.title}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        )
+      }
     </div>
   );
 };
