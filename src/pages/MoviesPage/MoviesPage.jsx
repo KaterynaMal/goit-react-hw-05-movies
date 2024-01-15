@@ -24,8 +24,7 @@ const MoviesPage = () => {
 
         const endpoint = `/search/movie?query=${paramsFofSearch}&include_adult=false`;
         const result = await findMovies(endpoint);
-        setMovies(result);
-
+        setMovies(result.results);
       } catch (error) {
         console.error('Error:', error.message);
         setMovies([]);
@@ -48,8 +47,6 @@ const MoviesPage = () => {
     setInputValue(inputValue);
   };
 
-  console.log('movies:', movies); 
-
   return (
     <div>
       <SearchMowies
@@ -60,12 +57,10 @@ const MoviesPage = () => {
 
       {indicatorLoader && <Loader />}
 
-      {movies !== null && movies.length > 0 && (<FilmListRender movies={movies} />)
-      }
-
+      {movies !== null && movies.length > 0 && (
+        <FilmListRender movies={movies} />
+      )}
     </div>
   );
 };
 export default MoviesPage;
-
-

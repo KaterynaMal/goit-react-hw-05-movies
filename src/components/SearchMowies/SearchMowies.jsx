@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useNavigate, useSearchParams  } from 'react-router-dom';
 import css from './SearchMowies.module.css';
 
 
