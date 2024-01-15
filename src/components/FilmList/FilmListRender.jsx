@@ -5,7 +5,6 @@ import css from './FilmList.module.css';
 const FilmListRender = ({ movies, location }) => {
   return (
     <div>
-      {movies && (
         <ul className={css.list}>
           {movies.map(movie => (
             <li key={movie.id}>
@@ -19,7 +18,7 @@ const FilmListRender = ({ movies, location }) => {
             </li>
           ))}
         </ul>
-      )}
+      
     </div>
   );
 };

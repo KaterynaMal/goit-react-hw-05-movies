@@ -30,7 +30,8 @@ const HomePage = () => {
       <h2 className={css.title}>Trending movies</h2>
 
       {indicatorLoader && <Loader />}
-      <FilmListRender movies={movies} />
+      {movies && (
+        <FilmListRender movies={movies} />)}
     </div>
   );
 };
