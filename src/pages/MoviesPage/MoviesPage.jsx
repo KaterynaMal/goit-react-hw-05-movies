@@ -1,13 +1,15 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import css from './MoviesPage.module.css';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { requestMovies } from 'services/api';
+import { Circles } from 'react-loader-spinner';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
+
   const paramsFofSearch =
-     searchParams.size !== 0 ? searchParams.get('searchValue') : '';
+    searchParams.size !== 0 ? searchParams.get('searchValue') : '';
 
   const [inputValue, setInputValue] = useState(paramsFofSearch || '');
   const [indicatorLoader, setIndicatorLoader] = useState(true);
@@ -50,32 +52,32 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* <SearchMowies /> */}
-        <div>
-          <form
-            action=""
-            onSubmit={HandleSubmit}
-            className={css.form}
-          >
-            <input
-              type="text"
-              value={inputValue}
-              onChange={HandleInput}
-              name="search"
+      <div>
+        <form action="" onSubmit={HandleSubmit} className={css.form}>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={HandleInput}
+            name="search"
+            className={css.input}
+          />
+          <button type="submit" className={css.button}>
+            Search
+          </button>
+        </form>
+      </div>
 
-              className={css.input}
-            />
-            <button
-              type="submit"
-              className={css.button}
-            >
-              Search
-            </button>
-          </form>
-        </div>
-      </Suspense>
-      {indicatorLoader && <div>Loading...</div>}
+      {indicatorLoader && (
+        <Circles
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="circles-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      )}
       {movies && (
         <ul>
           {movies.map(movie => (

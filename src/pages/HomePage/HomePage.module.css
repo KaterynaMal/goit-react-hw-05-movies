@@ -1,28 +1,24 @@
-/* .homePage {
-    padding-left: 50px;
-} */
-
 .title {
-    font-weight: 400;
-    font-size: 28px;
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
+  font-weight: 400;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
 }
 
 .list {
-padding-left: 80px;
+  padding-left: 80px;
 }
 
 .movie_link {
-    text-decoration: none;
-    color: black;
-font-size: 20px;
-line-height: 1.5em;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  line-height: 1.5em;
 }
 
 .movie_link:hover,
 .movie_link:focus {
-    text-decoration: underline;
-    color: rgb(131, 159, 181);
+  text-decoration: underline;
+  color: rgb(131, 159, 181);
 }

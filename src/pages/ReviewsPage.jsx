@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-// , Link, useLocation 
+
 import { requestMovies } from 'services/api';
 
 const ReviewsPage = () => {
@@ -31,7 +31,6 @@ const ReviewsPage = () => {
         <button type="button">Go back</button>
       </Link>
 
-
       {review && review.length > 0 ? (
         <ul>
           {review.map(post => (
@@ -41,9 +40,9 @@ const ReviewsPage = () => {
             </li>
           ))}
         </ul>
-      ) : 
-      <p>We don't have any reviews for this movie</p>
-      }
+      ) : (
+        <p>We don't have any reviews for this movie</p>
+      )}
     </div>
   );
 };

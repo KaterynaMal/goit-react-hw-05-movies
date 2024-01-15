@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { useParams, Link, useLocation} from 'react-router-dom';
-// , Link, useLocation 
+import { useParams, Link, useLocation } from 'react-router-dom';
+
 import { requestMovies } from 'services/api';
 
 const CastPage = () => {
@@ -9,7 +9,6 @@ const CastPage = () => {
   const [cast, setCast] = useState(null);
   const location = useLocation();
   const [backLink] = useState(location.state?.from ?? '/');
-  
 
   useEffect(() => {
     if (!movieId) return;
@@ -26,12 +25,13 @@ const CastPage = () => {
     fetchCast();
   }, [movieId]);
 
-const defaultImg = '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image>'
+  const defaultImg =
+    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
 
   return (
     <div>
       <Link to={backLink}>
-        <button type='button'>Go back</button>
+        <button type="button">Go back</button>
       </Link>
       {cast && (
         <ul>
@@ -46,11 +46,10 @@ const defaultImg = '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/
               <img
                 src={
                   actor.profile_path
-                    ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
-                    // : 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image>'
-                   : {defaultImg}
+                    ? [`https://image.tmdb.org/t/p/w500/${actor.profile_path}`]
+                    : defaultImg
                 }
-                alt={actor.name}
+                alt="poster"
                 width={250}
               />
 
