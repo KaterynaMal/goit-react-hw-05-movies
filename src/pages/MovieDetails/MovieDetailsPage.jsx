@@ -8,7 +8,7 @@ import css from './MovieDetailsPage.module.css';
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const location = useLocation();
+  
 
   useEffect(() => {
     const fetchMoviesDetails = async () => {
