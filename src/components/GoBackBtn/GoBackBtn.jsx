@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-
+import React, { useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import css from './GoBackBtn.module.css';
+// import css from './GoBackBtn.module.css';
 
 const GoBackBtn = () => {
   const location = useLocation();
-  const [backLink] = useState(location.state?.from ?? '/');
+  const backLinkRef = useRef(location.state?.from ?? '/');
+
+   useEffect(() => {
+    
+    backLinkRef.current = location.state?.from ?? '/';
+  }, [location]);
+
   return (
     <div>
-      <Link to={backLink}>
-        <button type="button" className={css.backBtn}>
-          Go back
-        </button>
-      </Link>
+      <Link to={backLinkRef.current}>Go back</Link>
     </div>
   );
 };

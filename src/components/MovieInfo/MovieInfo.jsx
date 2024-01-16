@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import css from './MovieInfo.module.css';
 
 const MovieInfo = ({ movie }) => {
@@ -33,11 +33,11 @@ const MovieInfo = ({ movie }) => {
         <p>Additional information</p>
         <ul>
           <li>
-            <NavLink to="cast">Cast</NavLink>
+            <Link to="cast">Cast</Link>
           </li>
 
           <li>
-            <NavLink to="reviews">Rewievs</NavLink>
+            <Link to="reviews">Rewievs</Link>
           </li>
         </ul>
       </div>

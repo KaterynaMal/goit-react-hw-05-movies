@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useParams, Outlet } from 'react-router-dom';
 import { requestMovies } from 'services/api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
-import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
+import  {GoBackBtn}  from 'components/GoBackBtn/GoBackBtn';
 import css from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
