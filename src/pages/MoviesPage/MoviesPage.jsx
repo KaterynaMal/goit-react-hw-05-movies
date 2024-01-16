@@ -59,7 +59,7 @@ const MoviesPage = () => {
       {indicatorLoader && <Loader />}
 
       {movies !== null && movies.length > 0 && (
-        <FilmListRender movies={movies} location={location } />
+        <FilmListRender movies={movies} location={location} />
       )}
     </div>
   );

@@ -1,14 +1,14 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { useParams, Outlet} from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { requestMovies } from 'services/api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
-import  {GoBackBtn}  from 'components/GoBackBtn/GoBackBtn';
+import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
 import css from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  
+  const location = useLocation();
 
   useEffect(() => {
     const fetchMoviesDetails = async () => {
@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.container}>
-      <GoBackBtn  />
+      <GoBackBtn location={location} />
 
       {movie && <MovieInfo movie={movie} />}
 
