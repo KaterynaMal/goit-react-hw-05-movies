@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.container}>
-      <GoBackBtn  location={location } />
+      <GoBackBtn  />
 
       {movie && <MovieInfo movie={movie} />}
 
