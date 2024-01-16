@@ -1,12 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-
+import { useLocation } from 'react-router-dom';
 import { requestMovies } from 'services/api';
 import { Loader } from 'components/Loader';
 import css from '../HomePage/HomePage.module.css';
 import { FilmListRender } from 'components/FilmList/FilmListRender';
 
 const HomePage = () => {
+   const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [indicatorLoader, setIndicatorLoader] = useState(true);
 
@@ -31,7 +32,7 @@ const HomePage = () => {
 
       {indicatorLoader && <Loader />}
       {movies && (
-        <FilmListRender movies={movies} />)}
+        <FilmListRender movies={movies} location={location } />)}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { findMovies } from 'services/api';
 import { Loader } from 'components/Loader';
 import { FilmListRender } from 'components/FilmList/FilmListRender';
@@ -12,6 +12,7 @@ const MoviesPage = () => {
     searchParams.size !== 0 ? searchParams.get('searchValue') : '';
   const [inputValue, setInputValue] = useState(paramsFofSearch || '');
   const [indicatorLoader, setIndicatorLoader] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchMovieByQuery = async () => {
@@ -58,7 +59,7 @@ const MoviesPage = () => {
       {indicatorLoader && <Loader />}
 
       {movies !== null && movies.length > 0 && (
-        <FilmListRender movies={movies} />
+        <FilmListRender movies={movies} location={location } />
       )}
     </div>
   );

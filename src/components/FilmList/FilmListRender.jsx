@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import css from './FilmList.module.css';
 
-const FilmListRender = ({ movies, location }) => {
+const FilmListRender = ({ movies, location}) => {
+
+
   return (
     <div>
         <ul className={css.list}>
